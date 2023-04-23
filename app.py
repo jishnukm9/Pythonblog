@@ -106,7 +106,8 @@ def get_all_posts():
 
     
     
-    posts = BlogPost.query.all()
+    posts = BlogPost.query.all()[::-1]
+    
     return render_template("index.html", all_posts=posts, current_user=current_user)
 
 
