@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyblog</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+
+
+    <style>
+
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    color:#444;
+    font-family: sans-serif;
+}
+html{
+    font-size:62.5%;
+}
+p{
+    font-size: 3rem;
+}
+
+.log-in:link,.log-in:visited{
+    display:inline-block;
+    font-size: 1.7rem;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-family: 'Hammersmith One', serif;
+}
+.log-in:active,.log-in:hover{
+
+    display:inline-block;
+    font-size: 1.7rem;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-family: 'Hammersmith One', serif;
+
+}
+
+.sign-up:link,.sign-up:visited{
+    display:inline-block;
+    font-size: 1.7rem;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-family: 'Hammersmith One', serif;
+}
+.sign-up:active,.sign-up:hover{
+
+    display:inline-block;
+    font-size: 1.7rem;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-family: 'Hammersmith One', serif;
+
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1rem 0;
+    max-width: 140rem;
+    margin:0 auto;
+   
+    
+}
+.nav-items ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    gap:2rem;
+    font-size: 1.7rem;
+    color:black;
+    font-weight: bold;
+    font-family: 'Hammersmith One', serif;
+}
+img{
+width:100%;
+border-radius: 2.5rem;
+/* height:20rem; */
+/* object-fit: contain; */
+
+}
+
+
+.hero-img{
+
+    margin:0 auto;
+
+    max-width: 140rem;
+
+}
+
+.foot-inside{
+
+    margin:0 auto;
+    max-width: 140rem;
+    height:50rem;
+    background-color: black;
+    border-radius: 1.5rem;
+    margin-bottom: 5rem;
+}
+.pylogo{
+    font-family: 'Hammersmith One', serif;
+}
+.sign-up{
+    background-color: black;
+    color:white;
+    padding:0.8rem 1.6rem;
+    border-radius: 0.5rem;
+}
+
+.log-in{
+    color:black;
+    font-weight: bold;
+}
+.dot{
+    color:blue;
+}
+.pylogo img{
+    max-height:5rem;
+}
+header{
+    padding:0 4rem;
+}
+
+.blog-outside{
+    /* padding: 8rem 13rem; */
+
+
+}
+.blogs{
+    max-width: 125rem;
+    margin:8rem auto;
+}
+
+.blog-inside{
+    
+    display: grid;
+    grid-template-columns: repeat(3,1fr) ;
+    gap:7rem;
+}
+
+.blog-heading{
+    font-size: 1.8rem;
+}
+.blog-desc{
+    font-size: 1.5rem;
+}
+.author p{
+    font-size: 1.4rem;
+}
+
+.load-class{
+
+    display: flex;
+    justify-content: center;
+}
+
+.load{
+    display:inline-block;
+    text-align: center;
+    background-color: black;
+    color:white;
+    font-size: 1.7rem;
+    padding:0.8rem 1.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin:7rem 0;
+    font-family: 'Hammersmith One', serif;
+
+}
+
+
+    </style>
+</head>
+<body>
+
+
+    <header>
+
+
+
+        <nav>
+
+            <div class="pylogo">
+                <!-- <p>Pyblog<span class="dot">.</span></p> -->
+                <img src="C:/Users/jishnu/Downloads/Black and White Modern Filmstrip Videography  Logo-edited.png" alt="python logo">
+
+            </div>
+            <div class="nav-items">
+                <ul>
+                <li>Home</li>
+                <li>Blogs</li>
+                <li>About us</li>
+                <li>Contact us</li>
+            </ul>
+
+
+            </div>
+            <div class="nav-sign-in">
+
+                <a href="http://" class="log-in">Log in</a>
+                <a href="http://" class="sign-up">Sign up</a>
+
+
+            </div>
+
+        </nav>
+
+        <div class="hero-img">
+
+
+            <img src="C:/Users/jishnu/Downloads/rear-view-programmer-working-all-night-long-croped2.jpg" alt="two people programming in a computer">
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </header>
+
+
+
+
+    <section class="blog-outside">
+        <div class="blogs">
+
+
+
+            <h2>Recent blog posts</h2>
+            <br><br>
+            
+
+            <div class="blog-inside">
+                {% for post in all_posts %}
+            <div class="blog-post">
+
+                <img src="{{post.img_url}}" alt="">
+                <br><br><br>
+                <h3 class="blog-heading">{{post.title}}</h3>
+                <br>
+                <p class="blog-desc">{{post.subtitle}}</p>
+                <br>
+                <div class="author">
+                    <p>Posted by {{post.author.name}} on {{post.date}}</p>
+
+                </div>
+
+            </div>
+            {% endfor %}
+            <!-- <div class="blog-post">
+
+                <img src="https://plus.unsplash.com/premium_photo-1661391599940-4c0c226fb49c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+                <br><br><br>
+                <h3 class="blog-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p class="blog-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam laudantium unde possimus quis suscipit beatae inventore fugiat accusamus, velit rem doloribus! Veniam expedita aut voluptatum culpa accusamus, ab velit?</p>
+                <br>
+                <div class="author">
+                    <p>Posted by Author on 18 september 2020</p>
+
+                </div>
+
+            </div>
+            <div class="blog-post">
+
+                <img src="https://images.unsplash.com/photo-1549082984-1323b94df9a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+                <br><br><br>
+                <h3 class="blog-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <br><br>
+                <p class="blog-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam laudantium unde possimus quis suscipit beatae inventore fugiat accusamus, velit rem doloribus! Veniam expedita aut voluptatum culpa accusamus, ab velit?</p>
+                <br>
+                <div class="author">
+                    <p>Posted by Author on 18 september 2020</p>
+
+                </div>
+
+            </div>
+            <div class="blog-post">
+
+                <img src="https://images.unsplash.com/photo-1569012871812-f38ee64cd54c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
+                <h3 class="blog-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p class="blog-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam laudantium unde possimus quis suscipit beatae inventore fugiat accusamus, velit rem doloribus! Veniam expedita aut voluptatum culpa accusamus, ab velit?</p>
+                <br>
+                <div class="author">
+                    <p>Posted by Author on 18 september 2020</p>
+
+                </div>
+
+            </div>
+            <div class="blog-post">
+
+                <img src="https://images.unsplash.com/photo-1529661197280-63dc545366c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
+                <h3 class="blog-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p class="blog-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam laudantium unde possimus quis suscipit beatae inventore fugiat accusamus, velit rem doloribus! Veniam expedita aut voluptatum culpa accusamus, ab velit?</p>
+                <br>
+                <div class="author">
+                    <p>Posted by Author on 18 september 2020</p>
+
+                </div>
+
+            </div>
+            <div class="blog-post">
+
+                <img src="https://images.unsplash.com/photo-1529661197280-63dc545366c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
+                <h3 class="blog-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p class="blog-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam laudantium unde possimus quis suscipit beatae inventore fugiat accusamus, velit rem doloribus! Veniam expedita aut voluptatum culpa accusamus, ab velit?</p>
+                <br>
+                <div class="author">
+                    <p>Posted by Author on 18 september 2020</p>
+
+                </div>
+
+            </div>
+            <div class="blog-post">
+
+                <img src="https://images.unsplash.com/photo-1529661197280-63dc545366c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
+                <h3 class="blog-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p class="blog-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam laudantium unde possimus quis suscipit beatae inventore fugiat accusamus, velit rem doloribus! Veniam expedita aut voluptatum culpa accusamus, ab velit?</p>
+                <br>
+                <div class="author">
+                    <p>Posted by Author on 18 september 2020</p>
+
+                </div>
+
+            </div>
+            <div class="blog-post">
+
+                <img src="https://images.unsplash.com/photo-1529661197280-63dc545366c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
+                <h3 class="blog-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p class="blog-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam laudantium unde possimus quis suscipit beatae inventore fugiat accusamus, velit rem doloribus! Veniam expedita aut voluptatum culpa accusamus,</p>
+                <br>
+                <div class="author">
+                    <p>Posted by Author on 18 september 2020</p>
+
+                </div>
+
+            </div>
+            <div class="blog-post">
+
+                <img src="https://images.unsplash.com/photo-1529661197280-63dc545366c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="">
+                <h3 class="blog-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <p class="blog-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, totam laudantium unde possimus quis suscipit beatae inventore fugiat accusamus, velit rem doloribus! Veniam expedita aut voluptatum culpa accusamus,</p>
+                <br>
+                <div class="author">
+                    <p>Posted by Author on 18 september 2020</p>
+
+                </div>
+
+            </div> -->
+
+            
+
+        </div>
+
+        <div class="load-class">
+            <a href="" class="load">Load more..</a>
+        </div>
+
+        
+
+
+        </div>
+
+
+        
+
+
+
+    </section>
+
+
+    <footer>
+
+
+
+        <div class="foot">
+
+
+
+
+            <div class="foot-inside">
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </footer>
+
+
+
+    
+    
+</body>
+</html>
