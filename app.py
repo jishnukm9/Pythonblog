@@ -29,7 +29,7 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('db_path')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('postgres_db_url')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -84,7 +84,7 @@ class User(UserMixin, db.Model):
     posts = relationship("BlogPost", back_populates="author")
     
 
-
+# db.create_all()
 login_manager = LoginManager()
 login_manager.init_app(app)
 
