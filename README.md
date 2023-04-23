@@ -2,7 +2,7 @@
 Blog built with Flask
 
 
-https://user-images.githubusercontent.com/99253054/156916173-e811cfed-f92e-4c01-b29c-04ed5353f7d9.mp4
+Visit : https://python-flask-blog-mhdi.onrender.com/
 
 
 
